@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "BricolageGrotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Exo2";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 400 900;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Questopolis Dark Navy Theme */
+    --background: 0.13 0.035 240;
+    --foreground: 0.95 0.015 230;
+    --card: 0.19 0.04 235;
+    --card-foreground: 0.95 0.015 230;
+    --popover: 0.22 0.045 233;
+    --popover-foreground: 0.95 0.015 230;
+    --primary: 0.72 0.18 193;
+    --primary-foreground: 0.1 0.03 240;
+    --secondary: 0.22 0.045 235;
+    --secondary-foreground: 0.85 0.02 230;
+    --muted: 0.22 0.04 233;
+    --muted-foreground: 0.62 0.04 225;
+    --accent: 0.75 0.16 185;
+    --accent-foreground: 0.1 0.03 240;
+    --destructive: 0.62 0.22 27;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.28 0.04 230;
+    --input: 0.25 0.04 232;
+    --ring: 0.72 0.18 193;
+
+    /* Game-specific tokens */
+    --navy-deep: 0.1 0.03 245;
+    --navy-mid: 0.14 0.038 240;
+    --navy-card: 0.19 0.042 235;
+    --navy-panel: 0.24 0.048 232;
+    --cyan: 0.72 0.18 193;
+    --cyan-glow: 0.78 0.16 188;
+    --success-green: 0.73 0.18 152;
+    --warning-orange: 0.75 0.18 55;
+    --danger-red: 0.63 0.22 27;
+    --gold: 0.8 0.16 75;
+    --gray-lock: 0.48 0.02 230;
+    --text-bright: 0.95 0.015 230;
+    --text-secondary: 0.62 0.04 225;
+
+    /* Chart tokens */
+    --chart-1: 0.72 0.18 193;
+    --chart-2: 0.73 0.18 152;
+    --chart-3: 0.8 0.16 75;
+    --chart-4: 0.75 0.18 55;
+    --chart-5: 0.63 0.22 27;
+
+    /* Sidebar */
+    --sidebar: 0.16 0.04 238;
+    --sidebar-foreground: 0.95 0.015 230;
+    --sidebar-primary: 0.72 0.18 193;
+    --sidebar-primary-foreground: 0.1 0.03 240;
+    --sidebar-accent: 0.22 0.045 235;
+    --sidebar-accent-foreground: 0.85 0.02 230;
+    --sidebar-border: 0.28 0.04 230;
+    --sidebar-ring: 0.72 0.18 193;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(
+      160deg,
+      oklch(0.1 0.035 245),
+      oklch(0.13 0.038 238)
+    );
+    min-height: 100vh;
+    font-family: "PlusJakartaSans", system-ui, sans-serif;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+}
+
+@layer utilities {
+  .text-cyan {
+    color: oklch(var(--cyan));
+  }
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+  .text-success {
+    color: oklch(var(--success-green));
+  }
+  .text-danger {
+    color: oklch(var(--danger-red));
+  }
+  .text-secondary-game {
+    color: oklch(var(--text-secondary));
+  }
+  .bg-navy-deep {
+    background-color: oklch(var(--navy-deep));
+  }
+  .bg-navy-mid {
+    background-color: oklch(var(--navy-mid));
+  }
+  .bg-navy-card {
+    background-color: oklch(var(--navy-card));
+  }
+  .bg-navy-panel {
+    background-color: oklch(var(--navy-panel));
+  }
+  .bg-cyan {
+    background-color: oklch(var(--cyan));
+  }
+  .border-cyan {
+    border-color: oklch(var(--cyan));
+  }
+  .glow-cyan {
+    box-shadow: 0 0 16px oklch(var(--cyan) / 0.5), 0 0 32px
+      oklch(var(--cyan) / 0.25);
+  }
+  .glow-success {
+    box-shadow: 0 0 16px oklch(var(--success-green) / 0.5), 0 0 32px
+      oklch(var(--success-green) / 0.25);
+  }
+  .glow-gold {
+    box-shadow: 0 0 16px oklch(var(--gold) / 0.5), 0 0 32px
+      oklch(var(--gold) / 0.25);
+  }
+  .font-brand {
+    font-family: "BricolageGrotesque", system-ui, sans-serif;
+    letter-spacing: 0.05em;
+    font-weight: 800;
+  }
+  .card-game {
+    background-color: oklch(var(--navy-card));
+    border: 1px solid oklch(var(--border));
+    border-radius: 0.75rem;
+  }
+  .card-panel {
+    background-color: oklch(var(--navy-panel));
+    border: 1px solid oklch(var(--border));
+    border-radius: 0.625rem;
+  }
+}
